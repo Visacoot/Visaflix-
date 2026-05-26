@@ -275,6 +275,31 @@ opacity:1;
 
 /* MOBILE */
 
+.tab-hero{
+height:65vh;
+border-radius:20px;
+margin-bottom:30px;
+position:relative;
+overflow:hidden;
+display:flex;
+align-items:flex-end;
+padding:40px;
+}
+
+.tab-overlay{
+position:absolute;
+inset:0;
+background:linear-gradient(to top,rgba(0,0,0,.9),transparent);
+display:flex;
+align-items:flex-end;
+padding:40px;
+}
+
+.tab-overlay h1{
+font-size:4rem;
+z-index:2;
+}
+
 @media(max-width:768px){
 
 .profile-screen h1{
@@ -399,6 +424,12 @@ memories and cinematic chaos.
 
 <h2>Bangalore Memories</h2>
 
+<div class="tab-hero" style="background:url('Bangalore/IMG_1891.jpg') center/cover no-repeat;">
+<div class="tab-overlay">
+<h1>Bangalore Memories</h1>
+</div>
+</div>
+
 <div class="row">
 
 <div class="card">
@@ -445,6 +476,12 @@ memories and cinematic chaos.
 <div class="section" id="mumbai-section">
 
 <h2>Mumbai Memories</h2>
+
+<div class="tab-hero" style="background:url('Mumbai/IMG_5443.JPG') center/cover no-repeat;">
+<div class="tab-overlay">
+<h1>Mumbai Memories</h1>
+</div>
+</div>
 
 <div class="row">
 
@@ -507,6 +544,12 @@ memories and cinematic chaos.
 
 <h2>Random Memories</h2>
 
+<div class="tab-hero" style="background:url('Random/IMG20250216204043.jpg') center/cover no-repeat;">
+<div class="tab-overlay">
+<h1>Random Chaos</h1>
+</div>
+</div>
+
 <div class="row">
 
 <div class="card">
@@ -553,6 +596,12 @@ memories and cinematic chaos.
 <div class="section" id="fav-section">
 
 <h2>My Favorites</h2>
+
+<div class="tab-hero" style="background:url('My Fav/IMG20241215170945.jpg') center/cover no-repeat;">
+<div class="tab-overlay">
+<h1>My Favorites</h1>
+</div>
+</div>
 
 <div class="row">
 
