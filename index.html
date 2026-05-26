@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VISAFLIX</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+body{
+background:#141414;
+color:white;
+overflow-x:hidden;
+}
+
+/* INTRO */
+
+.loading{
+position:fixed;
+inset:0;
+background:black;
+display:flex;
+justify-content:center;
+align-items:center;
+z-index:999999;
+animation:fadeOut 4s forwards;
+}
+
+.loading h1{
+font-size:6rem;
+color:#e50914;
+letter-spacing:10px;
+animation:zoom 2s infinite alternate;
+}
+
+@keyframes zoom{
+from{
+transform:scale(1);
+opacity:.7;
+}
+to{
+transform:scale(1.08);
+opacity:1;
+}
+}
+
+@keyframes fadeOut{
+0%{
+opacity:1;
+visibility:visible;
+}
+90%{
+opacity:1;
+}
+100%{
+opacity:0;
+visibility:hidden;
+}
+}
+
+/* PROFILE PAGE */
+
+.profile-screen{
+position:fixed;
+inset:0;
+background:#141414;
+display:flex;
+justify-content:center;
+align-items:center;
+flex-direction:column;
+z-index:99999;
+}
+
+.profile-screen h1{
+font-size:4rem;
+margin-bottom:50px;
+}
+
+.profiles{
+display:flex;
+gap:30px;
+flex-wrap:wrap;
+justify-content:center;
+}
+
+.profile{
+cursor:pointer;
+transition:.4s;
+text-align:center;
+}
+
+.profile:hover{
+transform:scale(1.1);
+}
+
+.profile img{
+width:170px;
+height:170px;
+border-radius:12px;
+object-fit:cover;
+border:4px solid transparent;
+transition:.4s;
+}
+
+.profile:hover img{
+border-color:#e50914;
+}
+
+.profile p{
+margin-top:12px;
+font-size:1.1rem;
+color:#aaa;
+}
+
+/* NAVBAR */
+
+nav{
+position:fixed;
+top:0;
+width:100%;
+padding:20px 60px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+z-index:1000;
+transition:.4s;
+}
+
+nav.scrolled{
+background:black;
+}
+
+.logo{
+font-size:2rem;
+font-weight:700;
+color:#e50914;
+letter-spacing:3px;
+cursor:pointer;
+}
+
+.nav-links{
+display:flex;
+gap:25px;
+}
+
+.nav-links span{
+cursor:pointer;
+}
+
+/* HERO */
+
+.hero{
+position:relative;
+height:100vh;
+overflow:hidden;
+background:url('Bangalore/IMG_5502.JPG') center/cover no-repeat;
+}
+
+.overlay{
+position:absolute;
+inset:0;
+background:
+linear-gradient(to top,#141414 5%,transparent 60%),
+linear-gradient(to right,#000 15%,transparent 70%);
+}
+
+.hero-content{
+position:relative;
+z-index:10;
+top:35%;
+padding-left:60px;
+max-width:700px;
+}
+
+.hero-content h1{
+font-size:5rem;
+margin-bottom:20px;
+}
+
+.hero-content p{
+font-size:1.2rem;
+line-height:1.7;
+margin-bottom:30px;
+}
+
+.buttons{
+display:flex;
+gap:15px;
+}
+
+.buttons button{
+padding:14px 34px;
+border:none;
+border-radius:5px;
+font-size:1rem;
+cursor:pointer;
+}
+
+.play{
+background:white;
+color:black;
+}
+
+.info{
+background:rgba(109,109,110,.7);
+color:white;
+}
+
+/* SECTIONS */
+
+.section{
+padding:30px 60px;
+display:none;
+}
+
+.section h2{
+margin-bottom:20px;
+}
+
+.row{
+display:flex;
+gap:12px;
+overflow-x:auto;
+padding-bottom:20px;
+}
+
+.card{
+min-width:280px;
+height:170px;
+border-radius:10px;
+overflow:hidden;
+position:relative;
+transition:.4s;
+flex-shrink:0;
+}
+
+.card:hover{
+transform:scale(1.1);
+}
+
+.card img{
+width:100%;
+height:100%;
+object-fit:cover;
+}
+
+.card-overlay{
+position:absolute;
+inset:0;
+background:linear-gradient(to top,rgba(0,0,0,.9),transparent);
+display:flex;
+align-items:flex-end;
+padding:15px;
+opacity:0;
+transition:.4s;
+}
+
+.card:hover .card-overlay{
+opacity:1;
+}
+
+/* MOBILE */
+
+@media(max-width:768px){
+
+.profile-screen h1{
+font-size:2rem;
+}
+
+.profile img{
+width:120px;
+height:120px;
+}
+
+.hero-content{
+padding:20px;
+top:45%;
+}
+
+.hero-content h1{
+font-size:3rem;
+}
+
+nav{
+padding:20px;
+}
+
+.nav-links{
+display:none;
+}
+
+.section{
+padding:20px;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- INTRO -->
+
+<div class="loading">
+<h1>VISAFLIX</h1>
+</div>
+
+<!-- PROFILE PAGE -->
+
+<div class="profile-screen" id="profiles">
+
+<h1>Who's Watching?</h1>
+
+<div class="profiles">
+
+<div class="profile" onclick="enterSite('bangalore')">
+<img src="Bangalore/IMG_1857.jpg">
+<p>Bangalore</p>
+</div>
+
+<div class="profile" onclick="enterSite('mumbai')">
+<img src="C:\Users\LENOVO\Downloads\Visaflix\Mumbai\IMG_5427.JPG">
+<p>Mumbai</p>
+</div>
+
+<div class="profile" onclick="enterSite('random')">
+<img src="C:\Users\LENOVO\Downloads\Visaflix\Random\IMG20250510214946.jpg">
+<p>Random</p>
+</div>
+
+<div class="profile" onclick="enterSite('fav')">
+<img src="C:\Users\LENOVO\Downloads\Visaflix\My Fav\IMG20241128101308.jpg">
+<p>My Fav</p>
+</div>
+
+</div>
+
+</div>
+
+<!-- NAVBAR -->
+
+<nav id="navbar">
+
+<div class="logo" onclick="goHome()">
+VISAFLIX
+</div>
+
+<div class="nav-links">
+<span>Home</span>
+<span>Trips</span>
+<span>Date Nights</span>
+<span>Chaos</span>
+</div>
+
+</nav>
+
+<!-- HERO -->
+
+<section class="hero">
+
+<div class="overlay"></div>
+
+<div class="hero-content">
+
+<h1>Our Story</h1>
+
+<p>
+Late night calls, airport hugs,
+memories and cinematic chaos.
+</p>
+
+<div class="buttons">
+<button class="play">▶ Play</button>
+<button class="info">More Info</button>
+</div>
+
+</div>
+
+</section>
+
+<!-- BANGALORE -->
+
+<div class="section" id="bangalore-section">
+
+<h2>Bangalore Memories</h2>
+
+<div class="row">
+
+<div class="card">
+<img src="C:\Users\LENOVO\Downloads\Visaflix\Bangalore\IMG_1858.jpg">
+<div class="card-overlay">
+<h3>Cubbon Park</h3>
+</div>
+</div>
+
+</div>
+
+</div>
+
+<!-- MUMBAI -->
+
+<div class="section" id="mumbai-section">
+
+<h2>Mumbai Memories</h2>
+
+<div class="row">
+
+<div class="card">
+<img src="C:\Users\LENOVO\Downloads\Visaflix\Mumbai\IMG_5458.JPG">
+<div class="card-overlay">
+<h3>Marine Drive</h3>
+</div>
+</div>
+
+</div>
+
+</div>
+
+<!-- RANDOM -->
+
+<div class="section" id="random-section">
+
+<h2>Random Memories</h2>
+
+<div class="row">
+
+<div class="card">
+<img src="C:\Users\LENOVO\Downloads\Visaflix\Random\IMG20250216204043.jpg">
+<div class="card-overlay">
+<h3>Random Chaos</h3>
+</div>
+</div>
+
+</div>
+
+</div>
+
+<!-- FAV -->
+
+<div class="section" id="fav-section">
+
+<h2>My Favorites</h2>
+
+<div class="row">
+
+<div class="card">
+<img src="C:\Users\LENOVO\Downloads\Visaflix\My Fav\IMG20241215170945.jpg">
+<div class="card-overlay">
+<h3>Favorite Human</h3>
+</div>
+</div>
+
+</div>
+
+</div>
+
+<script>
+
+function hideAllSections(){
+
+document.getElementById("bangalore-section").style.display="none";
+document.getElementById("mumbai-section").style.display="none";
+document.getElementById("random-section").style.display="none";
+document.getElementById("fav-section").style.display="none";
+
+}
+
+function enterSite(city){
+
+document.getElementById("profiles").style.display="none";
+
+hideAllSections();
+
+if(city==="bangalore"){
+document.getElementById("bangalore-section").style.display="block";
+}
+
+if(city==="mumbai"){
+document.getElementById("mumbai-section").style.display="block";
+}
+
+if(city==="random"){
+document.getElementById("random-section").style.display="block";
+}
+
+if(city==="fav"){
+document.getElementById("fav-section").style.display="block";
+}
+
+}
+
+function goHome(){
+
+document.getElementById("profiles").style.display="flex";
+
+hideAllSections();
+
+}
+
+window.addEventListener("scroll",()=>{
+
+const nav=document.getElementById("navbar");
+
+if(window.scrollY>50){
+nav.classList.add("scrolled");
+}else{
+nav.classList.remove("scrolled");
+}
+
+});
+
+</script>
+
+</body>
+</html>
