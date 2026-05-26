@@ -167,7 +167,9 @@ cursor:pointer;
 position:relative;
 height:100vh;
 overflow:hidden;
-background:url('Bangalore/IMG_5502.JPG') center/cover no-repeat;
+background-size:cover;
+background-position:center;
+transition:1s;
 }
 
 .overlay{
@@ -424,7 +426,7 @@ memories and cinematic chaos.
 
 <h2>Bangalore Memories</h2>
 
-<div class="tab-hero" style="background:url('Bangalore/IMG_1891.jpg') center/cover no-repeat;">
+<div class="tab-hero" >
 <div class="tab-overlay">
 <h1>Bangalore Memories</h1>
 </div>
@@ -477,7 +479,7 @@ memories and cinematic chaos.
 
 <h2>Mumbai Memories</h2>
 
-<div class="tab-hero" style="background:url('Mumbai/IMG_5443.JPG') center/cover no-repeat;">
+<div class="tab-hero" >
 <div class="tab-overlay">
 <h1>Mumbai Memories</h1>
 </div>
@@ -544,7 +546,7 @@ memories and cinematic chaos.
 
 <h2>Random Memories</h2>
 
-<div class="tab-hero" style="background:url('Random/IMG20250216204043.jpg') center/cover no-repeat;">
+<div class="tab-hero" >
 <div class="tab-overlay">
 <h1>Random Chaos</h1>
 </div>
@@ -597,7 +599,7 @@ memories and cinematic chaos.
 
 <h2>My Favorites</h2>
 
-<div class="tab-hero" style="background:url('My Fav/IMG20241215170945.jpg') center/cover no-repeat;">
+<div class="tab-hero" >
 <div class="tab-overlay">
 <h1>My Favorites</h1>
 </div>
@@ -648,7 +650,23 @@ document.getElementById("fav-section").style.display="none";
 
 }
 
-function enterSite(city){
+function enterSite(city){const hero = document.querySelector(".hero");
+
+if(city==="bangalore"){
+hero.style.backgroundImage="url('Bangalore/IMG_1891.jpg')";
+}
+
+if(city==="mumbai"){
+hero.style.backgroundImage="url('Mumbai/IMG_5443.JPG')";
+}
+
+if(city==="random"){
+hero.style.backgroundImage="url('Random/IMG20250216204043.jpg')";
+}
+
+if(city==="fav"){
+hero.style.backgroundImage="url('My Fav/IMG20241215170945.jpg')";
+}
 
 document.getElementById("profiles").style.display="none";
 
